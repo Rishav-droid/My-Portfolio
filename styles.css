@@ -470,3 +470,115 @@ contact-item:hover a {
         transform: translateX(0);
     }
 }
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Tablet and smaller */
+    .container {
+        padding: 0 15px;
+    }
+
+    #animated-name {
+        font-size: 2.5rem;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .lead {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Mobile devices */
+    section {
+        padding: 4rem 0;
+    }
+
+    #animated-name {
+        font-size: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    nav ul li a {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .feedback-container {
+        padding: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .greeting-bubble {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Handle cursor trail for touch devices */
+@media (hover: none) {
+    .cursor-trail {
+        display: none;
+    }
+}
+
+/* Adjust navigation for landscape mode on mobile */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    nav {
+        padding: 0.8rem;
+    }
+
+    section {
+        padding: 3rem 0;
+    }
+
+    .profile-container {
+        flex-direction: row;
+        align-items: center;
+    }
+}
