@@ -350,3 +350,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }, 5000);
 });
+
+// Mobile menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', 
+        navToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+    );
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }
+});
