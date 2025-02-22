@@ -6,6 +6,10 @@
     --accent-1: #4a9eff;
     --accent-2: #ff49db;
     --accent-3: #50fa7b;
+    --mobile-width: 480px;
+    --tablet-width: 768px;
+    --laptop-width: 1024px;
+    --desktop-width: 1200px;
 }
 
 * {
@@ -55,6 +59,9 @@ body::before {
     position: relative;
     z-index: 1;
     width: 100%;
+    max-width: var(--desktop-width);
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 nav {
@@ -155,6 +162,9 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
 .skill {
@@ -300,17 +310,20 @@ footer {
 
 .contact-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Changed from column to row */
     gap: 1rem;
-    max-width: 800px;
-    margin: 2rem auto;
-    align-items: flex-start; /* Align items to the left */
+    width: 100%;
+    max-width: 1000px; /* Increased from 300px */
+    align-items: stretch;
+    justify-content: center; /* Center the contact items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .contact-item {
-    width: auto; /* Allow natural width */
-    min-width: 280px; /* Set minimum width */
-    padding: 0.8rem 1.2rem;
+    flex: 1; /* Allow items to grow equally */
+    min-width: 250px; /* Increased from 200px */
+    max-width: 350px; /* Increased from 300px */
+    padding: 1rem 1.5rem; /* Increased padding */
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -330,7 +343,7 @@ footer {
     color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 0.95rem; /* Reduced from 1.1rem */
+    font-size: 1.1rem; /* Increased from 0.95rem */
     word-break: break-word; /* Added to handle long emails */
 }
 
@@ -339,10 +352,10 @@ contact-item:hover a {
 }
 
 .contact-item i {
-    font-size: 1.5rem; /* Reduced from 1.8rem */
+    font-size: 1.8rem; /* Increased from 1.5rem */
     color: var(--accent-1);
     transition: transform 0.3s ease;
-    width: 30px; /* Reduced from 40px */
+    width: 35px; /* Increased from 30px */
     text-align: center;
 }
 
@@ -613,11 +626,19 @@ contact-item:hover a {
     pointer-events: none;
 }
 
+/* Update contact section layout */
 #contact .container {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
-    align-items: start;
+}
+
+.feedback-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 /* Responsive Design */
@@ -647,11 +668,13 @@ contact-item:hover a {
     }
 
     .contact-info {
-        width: 100%;
+        flex-direction: column; /* Stack on mobile */
+        align-items: stretch;
     }
     
     .contact-item {
-        width: 100%;
+        max-width: none;
+        padding: 1.2rem 1.5rem; /* Increased padding for mobile */
     }
 
     nav ul {
@@ -685,6 +708,11 @@ contact-item:hover a {
 
     #contact .container {
         grid-template-columns: 1fr; /* Stack on mobile */
+    }
+
+    .contact-info,
+    .feedback-container {
+        max-width: 100%;
     }
 }
 
@@ -779,5 +807,161 @@ contact-item:hover a {
 @media screen and (min-width: 1024px) {
     .container {
         padding: 0 40px;
+    }
+}
+
+/* Desktop (1200px and up) */
+@media screen and (min-width: 1200px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    #animated-name {
+        font-size: 4rem;
+    }
+}
+
+/* Laptop (1024px to 1199px) */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+
+    #animated-name {
+        font-size: 3.5rem;
+    }
+}
+
+/* Tablet (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #animated-name {
+        font-size: 3rem;
+    }
+
+    #contact .container {
+        grid-template-columns: 250px 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Mobile (up to 767px) */
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    #contact .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #animated-name {
+        font-size: 2.5rem;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-item {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .feedback-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Small Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+    section {
+        padding: 3rem 0;
+    }
+
+    #animated-name {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    nav ul li a {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        gap: 1rem;
+    }
+}
+
+/* Handle orientation changes */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .profile-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    section {
+        padding: 2rem 0;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* High-resolution displays */
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .cursor-trail,
+    .particles,
+    .code-symbols,
+    .greeting-container {
+        display: none;
+    }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
