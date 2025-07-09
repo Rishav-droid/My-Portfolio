@@ -606,6 +606,64 @@ contact-item:hover a {
     padding: 2rem;
 }
 
+/* Back to Top Button Styles */
+#back-to-top-btn {
+    margin: 2rem auto 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--accent-1);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(74,158,255,0.08);
+}
+
+#back-to-top-btn:hover {
+    background: var(--accent-2);
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+}
+
+#back-to-top-btn .text,
+#back-to-top-btn .clone {
+    display: flex;
+    gap: 0.3rem;
+}
+
+#back-to-top-btn .clone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#back-to-top-btn svg {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    transition: transform 0.3s;
+}
+
+#back-to-top-btn:hover svg {
+    transform: translateX(4px) scale(1.1);
+}
+
+@media (max-width: 480px) {
+    #back-to-top-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     /* Tablet and smaller */

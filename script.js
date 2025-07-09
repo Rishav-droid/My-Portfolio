@@ -377,3 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Back to Top Button functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('back-to-top-btn');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
