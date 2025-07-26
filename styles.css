@@ -87,12 +87,13 @@ section {
 
 .project-card {
     background: var(--bg-secondary);
-    padding: 1.5rem;
+    padding: 1.125rem;
     border-radius: 12px;
     transition: transform 0.3s ease;
     border: 1px solid rgba(255,255,255,0.1);
     position: relative;
     overflow: hidden;
+    transform: scale(0.75);
 }
 
 .project-card:hover {
@@ -116,6 +117,15 @@ section {
 
 .project-card:hover::before {
     opacity: 0.1;
+}
+
+.project-thumbnail {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 0 auto 1rem auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .skills-grid {
@@ -973,4 +983,74 @@ contact-item:hover a {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+.project-card-modern {
+  --font-color: var(--text-primary);
+  --bg-color: var(--bg-secondary);
+  width: 250px;
+  height: 350px;
+  border-radius: 20px;
+  background: var(--bg-color);
+  box-shadow: -9px 9px 18px #222,
+              9px -9px 18px #222;
+  display: flex;
+  flex-direction: column;
+  transition: .4s;
+  position: relative;
+}
+
+.project-card-modern:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px 2px #222;
+}
+
+.project-card-modern__img {
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  background-color: #22223b;
+}
+
+.project-card-modern__descr-wrapper {
+  padding: 15px;
+  display: grid;
+}
+
+.project-card-modern__title {
+  color: var(--font-color);
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.project-card-modern__descr {
+  color: var(--font-color);
+}
+
+.project-card-modern__svg {
+  width: 25px;
+  height: 25px;
+  transform: translateY(25%);
+  fill: var(--font-color);
+}
+
+.project-card-modern__links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+.project-card-modern__links .link {
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.project-card-modern__links .link:hover {
+  text-decoration: underline;
 }
